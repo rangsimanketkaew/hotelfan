@@ -1,6 +1,7 @@
 {
-  "name": "hotelfan-frontend",
+  "name": "hotelfan",
   "version": "0.1.0",
+  "homepage": "https://rangsimanketkaew.github.io/hotelfan/",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
@@ -21,6 +22,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "deploy": "gh-pages -d build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -43,6 +45,7 @@
     ]
   },
   "devDependencies": {
+    "gh-pages": "^6.0.0",
     "sass": "^1.67.0"
   }
 }
