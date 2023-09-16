@@ -22,6 +22,7 @@ const Navigation = () => {
             <Nav className="me-auto justify-content-center">
               <Nav.Link  as={NavLink} to="/explore" activeclassname="active-color-main-navbar">Explore</Nav.Link>
               <Nav.Link  as={NavLink} to="/hotels" activeclassname="active-color-main-navbar">Hotels</Nav.Link>
+              <Nav.Link  as={NavLink} to="/match" activeclassname="active-color-main-navbar">Match</Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Container>

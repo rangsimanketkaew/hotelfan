@@ -1,31 +1,30 @@
 import { memo, useEffect, useState } from "react";
-import { Button, Card, Carousel, Spinner } from "react-bootstrap";
+import { Button, Card, Carousel, ProgressBar, Spinner } from "react-bootstrap";
 import axios from "axios";
 import { BASE_URL } from "const/env";
 import { getPlainText } from "utils/helpers";
-import { AiFillStar } from 'react-icons/ai';
+import { AiFillStar } from "react-icons/ai";
+import { IoIosArrowForward } from "react-icons/io";
 
-const Stars = ({officialRating}) => {
+const Stars = ({ officialRating }) => {
   const number = getPlainText(officialRating).length;
   let stars = [];
-  for(let i = 0; i < number; i++) {
-    stars = [...stars, <AiFillStar size={20} color="orange" />]
+  for (let i = 0; i < number; i++) {
+    stars = [...stars, <AiFillStar size={20} color="orange" />];
   }
   return stars.map((star) => star);
-}
+};
 
-const Hotel = () => {
-  const [hotel, setHotel] = useState();
+const Hotel = ({hotel}) => {
+  // const [hotel, setHotel] = useState({});
 
-  useEffect(() => {
-    axios.get(`${BASE_URL}/`).then((response) => {
-      setHotel(response.data);
-    });
-  }, []);
+  // useEffect(() => {
+  //   axios.get(`${BASE_URL}/`).then((response) => {
+  //     setHotel(response.data);
+  //   });
+  // }, []);
 
-  if (!hotel) {
-    return <Spinner animation="border" />;
-  }
+  if (!hotel) return;
 
   return (
     <>
@@ -47,12 +46,30 @@ const Hotel = () => {
         </Card.Img>
         <Card.Body>
           <Card.Title>
-            {hotel.name} <Stars officialRating={hotel.textInfo.officialRating} />
+            {hotel.name}
+            <span className="align-right">
+              <Stars officialRating={hotel.textInfo.officialRating} />
+            </span>
           </Card.Title>
           <Card.Text>
-            {getPlainText(hotel.textInfo.situation)}
+            <div className="co2-status-bar">
+              Erstellt einen CO2 Fussabdruck von {60}
+              <ProgressBar
+                now={60}
+                label={`${60}%`}
+                variant="danger"
+                max={100}
+                visuallyHidden
+              />
+            </div>
+            <div
+              dangerouslySetInnerHTML={{ __html: hotel.textInfo.situation }}
+            />
           </Card.Text>
-          <Button variant="danger">Book it now</Button>
+          <div className="hotel-link">
+            p.P./ ab <span>CHF {557}.-</span>
+            <IoIosArrowForward size={30} className="arrow-icon"/>
+          </div>
         </Card.Body>
       </Card>
     </>

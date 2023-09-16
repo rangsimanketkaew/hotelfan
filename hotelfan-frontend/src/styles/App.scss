@@ -63,7 +63,6 @@ code {
     color: white;
     // height: 60px;
     padding: 15px 25px;
-    margin-bottom: 40px;
 
     .title {
       font-size: 24px;
@@ -72,6 +71,7 @@ code {
 
   .chatbot-body {
     background-color: white;
+    padding-top: 20px;
     height: 790px;
 
     .chatbot-form {
@@ -112,4 +112,86 @@ code {
 .message-chatbot {
   background-color: lightgray;
   float: right;
+}
+
+.co2-status-bar {
+  margin: 15px 0;
+}
+
+.align-right {
+  float: right;
+}
+
+.hotel-link {
+  border-top: 1px solid black;
+  width: 100%;
+  text-align: end;
+  padding-top: 10px;
+
+  span {
+    font-weight: bold;
+    font-size: larger;
+  }
+
+  .arrow-icon {
+    margin-left: 10px;
+    background-color: red;
+    color: white;
+  }
+}
+
+.match {
+  background-color: rgba(173, 216, 230, 0.4);
+  height: 837px;
+  padding: 80px 50px;
+
+  .title {
+    font-size: x-large !important;
+    font-weight: bolder;
+  }
+
+  .header {
+    font-size: larger;
+    text-align: center;
+  }
+
+  .suggestion-match {
+    margin-top: 50px;
+
+    img {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      object-fit: contain;
+      width: 300px;
+      max-height: 500px;
+    }
+  }
+
+  .match-buttons {
+    text-align: center;
+    padding: 50px 0;
+
+    .suggestion-button {
+      background-color: white;
+      width: 60px;
+      height: 60px;
+      border-radius: 60px;
+      text-align: center;
+      padding-top: 10px;
+    }
+
+    .dislike-suggestion {
+      margin-right: 50px;
+    }
+
+    .like-suggestion {
+      margin-left: 50px;
+    }
+
+    div {
+      display: inline-block;
+    }
+
+  }
 }
