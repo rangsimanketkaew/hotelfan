@@ -1,7 +1,7 @@
 """
 Root type from de.json / fr.json
 """
-type FdrGeoResponse {
+type Query {
     geo: [FdrGeo]!
 }
 
@@ -171,7 +171,7 @@ type FdrResort implements FdrGeo {
     """
     Returns products which geo parent is the resort.
     """
-    products(input: FdrGeoProductsInput!): FdrGeoProducts!
+    products: FdrGeoProducts!
     """
     Array of resort images.
     """
@@ -601,7 +601,7 @@ type FdrDestination implements FdrGeo {
     """
     Children resort geo objects.
     """
-    resorts(input: FdrGeoChildrenInput!): FdrDestinationResorts!
+    resorts: FdrDestinationResorts!
     """
     Optional region parent geo object.
     """
@@ -667,7 +667,7 @@ type FdrDestination implements FdrGeo {
     Returns products which geo parent is the destination. DO NOT returns products liked to
     children resorts. Those can be fetched via 'FdrDestination.resorts -> FdrResort.products' resolver.
     """
-    products(input: FdrGeoProductsInput!): FdrGeoProducts!
+    products: FdrGeoProducts!
     """
     Destination climate information.
     """
@@ -818,7 +818,7 @@ type FdrRegion implements FdrGeo {
     """
     Region destinations.
     """
-    destinations(input: FdrGeoChildrenInput!): FdrRegionDestinations!
+    destinations: FdrRegionDestinations!
 }
 
 """
@@ -902,11 +902,11 @@ type FdrCountry implements FdrGeo {
     """
     Country regions.
     """
-    regions(input: FdrGeoChildrenInput!): FdrCountryRegions!
+    regions: FdrCountryRegions!
     """
     Country destinations
     """
-    destinations(input: FdrGeoChildrenInput!): FdrCountryDestinations!
+    destinations: FdrCountryDestinations!
 }
 
 """
@@ -992,7 +992,7 @@ type FdrCountryGroup implements FdrGeo {
     """
     Children country geo objects.
     """
-    countries(input: FdrGeoChildrenInput!): FdrCountryGroupCountries!
+    countries: FdrCountryGroupCountries!
 }
 
 """
@@ -1060,11 +1060,11 @@ type FdrContinent implements FdrGeo {
     """
     Children country groups objects.
     """
-    countryGroups(input: FdrGeoChildrenInput!): FdrContinentCountryGroups!
+    countryGroups: FdrContinentCountryGroups!
     """
     Children countries objects.
     """
-    countries(input: FdrGeoChildrenInput!): FdrContinentCountries!
+    countries: FdrContinentCountries!
 }
 
 """
