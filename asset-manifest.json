@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/hotelfan/static/css/main.8ccd77dc.css",
-    "main.js": "/hotelfan/static/js/main.4b257edf.js",
+    "main.css": "/hotelfan/static/css/main.e15195f9.css",
+    "main.js": "/hotelfan/static/js/main.3e724504.js",
     "static/media/black_sand.jpg": "/hotelfan/static/media/black_sand.50f9cee40a7213c13fa6.jpg",
     "static/media/swiss_vacation.jpg": "/hotelfan/static/media/swiss_vacation.f8dfa8e51e3f79a19c38.jpg",
     "static/media/plane_vacation.jpg": "/hotelfan/static/media/plane_vacation.519c340dd34ee3d01334.jpg",
@@ -10,11 +10,11 @@
     "static/media/beach_trash.jpeg": "/hotelfan/static/media/beach_trash.bc78b5a3752905f57bed.jpeg",
     "static/media/hotelplan_logo.svg": "/hotelfan/static/media/hotelplan_logo.ff165ecf82a9275a0ccbfda4a8b63847.svg",
     "index.html": "/hotelfan/index.html",
-    "main.8ccd77dc.css.map": "/hotelfan/static/css/main.8ccd77dc.css.map",
-    "main.4b257edf.js.map": "/hotelfan/static/js/main.4b257edf.js.map"
+    "main.e15195f9.css.map": "/hotelfan/static/css/main.e15195f9.css.map",
+    "main.3e724504.js.map": "/hotelfan/static/js/main.3e724504.js.map"
   },
   "entrypoints": [
-    "static/css/main.8ccd77dc.css",
-    "static/js/main.4b257edf.js"
+    "static/css/main.e15195f9.css",
+    "static/js/main.3e724504.js"
   ]
 }
