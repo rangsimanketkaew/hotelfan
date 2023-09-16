@@ -1,0 +1,214 @@
+{
+  "__typename": "FdrHotel",
+  "publicId": "h-463817",
+  "giataCode": 463817,
+  "name": "Comfort Hotel Karl Johan",
+  "rating": 3.0,
+  "tripAdvisorCode": 0,
+  "coordinates": {
+    "latitude": 59.9118089,
+    "longitude": 10.746124799999961
+  },
+  "mapZoom": 14,
+  "mythosInfo": null,
+  "leadText": "<p>Das Dreisternehotel an der bekannten Einkaufsstrasse beeindruckt mit seinem stilvollen und individuellen Design. Mit gutem Preis-Leistungs-Verhältnis ideal für Ihre Städtereise nach Oslo.</p>",
+  "textInfo": {
+    "situation": "<p>Direkt an der pulsierenden Einkaufsmeile Karl Johan Gate mit zahlreichen Geschäften und Boutiquen. Rund um das Hotel befindet sich eine Vielzahl an Restaurants und Bars. Die Domkirche aus dem 17. Jahrhundert finden Sie gegenüber dem Hotel. Das architektonisch interessante Opernhaus erreichen Sie nach etwa 800 m. Das Königliche Schloss und der malerische Schlosspark sind rund 1,2 km entfernt. Zum Hauptbahnhof gelangen Sie nach ca. 300 m. Bis zur Tramhaltestelle Stortorvet sind es knapp 100 m.</p>",
+    "facilityFeatures": "<p>Das Comfort Hotel Karl Johan ist in einem restaurierten Gebäude untergebracht. Zur stilvollen Einrichtung gehören ein einladender Empfangsbereich mit Réception und WLAN (gratis). Zu den gastronomischen Angeboten zählen ein Burgerrestaurant und eine Bar.</p>",
+    "accommodationFeatures": "<p>Die geschmackvoll und individuell eingerichteten <b>Zimmer </b>(15–20 m<sup>2</sup>) verfügen über Dusche, WC, Föhn; Telefon, TV, WLAN (gratis). Die<b> Superior-Zimmer</b> (20–30 m<sup>2</sup>) sind bei gleicher Grundausstattung geräumiger. Die <b>Deluxe-Zimmer</b> (ca. 35 m<sup>2</sup>) bieten zusätzlich einen integrierten Wohn-/Schlafbereich mit Bettsofa.</p>",
+    "rooms": "260",
+    "sportFree": "<p>Fitnessraum.</p>",
+    "sportPaid": "",
+    "activities": "",
+    "forKids": "",
+    "catering": "<p>Frühstück.</p>",
+    "hints": "<p>Die Bezahlung im Hotel erfolgt ausschliesslich bargeldlos.</p>",
+    "infoPlus": "",
+    "familyHits": "",
+    "skiPackages": "",
+    "wellnessPlus": "",
+    "hotelWellnessInfo": "",
+    "hotelWellnessPaket": "",
+    "moreInformation": "",
+    "officialRating": "<p>***</p>",
+    "highlights": ""
+  },
+  "flags": {
+    "top": false,
+    "bestseller": false,
+    "cityTrip": true,
+    "winterSport": false,
+    "summerSport": false,
+    "nightLife": false,
+    "gourmet": false,
+    "club": false,
+    "luxury": false,
+    "pets": false,
+    "sustainable": false,
+    "romantic": false,
+    "gayLesbians": false,
+    "ski": false,
+    "funPark": false,
+    "nationalPark": false,
+    "adultsOnly": false,
+    "refundable": false,
+    "extraOrdinary": false,
+    "wifi": {
+      "achieved": true,
+      "inRoomFreeWifi": true,
+      "inRoomPaidWifi": false,
+      "inLobbyFreeWifi": true,
+      "inLobbyPaidWifi": false
+    },
+    "beach": {
+      "achieved": false,
+      "sandyBeach": false,
+      "sandyBeachWhiteFine": false,
+      "cobbleStone": false,
+      "rocksStones": false,
+      "naturalBeach": false,
+      "gentlySloping": false,
+      "privateBeach": false,
+      "reefBeach": false
+    },
+    "foodAndBeverage": {
+      "buffet": false,
+      "alaCarteRestaurants": true,
+      "gourmetRestaurant": false,
+      "beachBar": false,
+      "bar": true,
+      "snackBarBistro": false,
+      "roomService": false
+    },
+    "entertainment": {
+      "achieved": false,
+      "discoNightclub": false,
+      "animation": false,
+      "show": false
+    },
+    "beautyAndWellness": {
+      "achieved": false,
+      "sauna": false,
+      "steamBathHamam": false,
+      "spaHealthCenter": false,
+      "massage": false,
+      "ayurveda": false,
+      "beautyTreatment": false,
+      "yoga": false
+    },
+    "waterSport": {
+      "achieved": false,
+      "diveCenter": false,
+      "canoeKayak": false,
+      "sailingCatamaran": false,
+      "waterSkiWakeboarding": false,
+      "surfing": false,
+      "windSurfing": false,
+      "kiteSurfing": false,
+      "outdoorPool": false,
+      "indoorPool": false
+    },
+    "sport": {
+      "achieved": false,
+      "gym": true,
+      "soccer": false,
+      "beachSport": false,
+      "tennis": false,
+      "golfDrivingRange": false,
+      "cycling": false,
+      "sportProgram": false,
+      "squash": false,
+      "skiPackageAvailable": false
+    },
+    "location": {
+      "beachFront": false,
+      "distanceToBeach500M": false,
+      "directlyAtSlopeValleyStation": false,
+      "distanceToSlopeValleyStation300M": false,
+      "cityCenter": true,
+      "ruralArea": false,
+      "remoteArea": false,
+      "directlyAtSea": false,
+      "nationalPark": false,
+      "airportHotel": false,
+      "directlyAtLake": false
+    },
+    "family": {
+      "achieved": false,
+      "babysittingService": false,
+      "childCare": false,
+      "miniOrChildrenClub": false,
+      "teenProgram": false,
+      "childPool": false,
+      "childrenPlayground": false,
+      "waterSlide": false
+    },
+    "customerSegment": {
+      "honeymooner": false,
+      "singles": false,
+      "couples": false,
+      "gayLesbians": false,
+      "adultsOnly": false
+    },
+    "typeFlags": {
+      "rooms50": false,
+      "rooms100": false,
+      "rooms200": false,
+      "rooms500": true,
+      "rooms999": false,
+      "modernDesign": false,
+      "luxury": false,
+      "charm": false,
+      "funPark": false,
+      "familyAtmosphere": false,
+      "club": false,
+      "wheelchairAccess": false,
+      "sustainable": false,
+      "petsWelcome": false,
+      "parking": false,
+      "apartment": false,
+      "chargingStations": false
+    }
+  },
+  "hero": {
+    "url": "https://assets.hotelplan.com/myassets/webimages/765/765389.jpg"
+  },
+  "images": [
+    {
+      "url": "https://assets.hotelplan.com/myassets/webimages/765/765389.jpg"
+    },
+    {
+      "url": "https://assets.hotelplan.com/myassets/webimages/765/765395.jpg"
+    },
+    {
+      "url": "https://assets.hotelplan.com/myassets/webimages/765/765386.jpg"
+    },
+    {
+      "url": "https://assets.hotelplan.com/myassets/webimages/765/765385.jpg"
+    },
+    {
+      "url": "https://assets.hotelplan.com/myassets/webimages/765/765391.jpg"
+    },
+    {
+      "url": "https://assets.hotelplan.com/myassets/webimages/765/765377.jpg"
+    },
+    {
+      "url": "https://assets.hotelplan.com/myassets/webimages/765/765383.jpg"
+    },
+    {
+      "url": "https://assets.hotelplan.com/myassets/webimages/765/765387.jpg"
+    },
+    {
+      "url": "https://assets.hotelplan.com/myassets/webimages/765/765379.jpg"
+    },
+    {
+      "url": "https://assets.hotelplan.com/myassets/webimages/765/765376.jpg"
+    },
+    {
+      "url": "https://assets.hotelplan.com/myassets/webimages/765/765381.jpg"
+    },
+    {
+      "url": "https://assets.hotelplan.com/myassets/webimages/765/765374.jpg"
+    }
+  ]
+}
