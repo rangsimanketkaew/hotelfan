@@ -3,6 +3,19 @@ import requests
 import json
 import pprint
 
+# Return data
+'''
+"aqius": //AQI value based on US EPA standard
+"aqicn": //AQI value based on China MEP standard
+"tp": //temperature in Celsius
+"tp_min": //minimum temperature in Celsius
+"pr": //atmospheric pressure in hPa
+"hu": //humidity %
+"ws": //wind speed (m/s)
+"wd": //wind direction, as an angle of 360° (N=0, E=90,S=180, W=270)
+"ic": //weather icon code, see below for icon index
+'''
+
 API='567f8e29-f9b3-4d77-af2e-02ea9dc39294'
 
 ## Code to extract AQI Infromation
@@ -12,7 +25,10 @@ def stationlocator(Latitude,Longtitude):
     doc = dt.text
     j = json.loads(doc)
 
-    pprint.pprint(j)
-    # return j
+    pprint.pprint(j['data'])
+    return j['data']
 
-stationlocator(35.98,140.33)
+air = stationlocator(35.98,140.33)
+
+# Get AQI American one
+print(air['current']['pollution']['aqius'])
