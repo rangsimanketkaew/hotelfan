@@ -7,7 +7,7 @@ const Navigation = () => {
 
   return (
     <div className="navigation">
-      <Navbar expand="md" className="bg-body-tertiary" fixed="top">
+      <Navbar expand="md" className="bg-body-tertiary">
         <Container>
           <Navbar.Brand href="#home">
             <img
@@ -20,8 +20,8 @@ const Navigation = () => {
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto justify-content-center">
-              <Nav.Link as={NavLink} to="/" activeclassname="active-color-main-navbar">Chatbot</Nav.Link>
               <Nav.Link  as={NavLink} to="/explore" activeclassname="active-color-main-navbar">Explore</Nav.Link>
+              <Nav.Link  as={NavLink} to="/hotels" activeclassname="active-color-main-navbar">Hotels</Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Container>
