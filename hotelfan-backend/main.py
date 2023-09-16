@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import JSONResponse, FileResponse
 
 app = FastAPI()
 
@@ -18,4 +19,9 @@ app.add_middleware(
 
 @app.get("/")
 async def root():
-    return {"message": "Hotelfan"}
+    filename = "mock.json"
+
+    # assume the file is in the root directory of the project
+    file_path = f"./{filename}"
+
+    return FileResponse(file_path)
