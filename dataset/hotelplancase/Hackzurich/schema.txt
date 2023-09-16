@@ -1,0 +1,1868 @@
+"""
+Root type from de.json / fr.json
+"""
+type FdrGeoResponse {
+    geo: [FdrGeo]!
+}
+
+"""
+Geo coordinates.
+"""
+type FdrCoordinates {
+    """
+    Latitude.
+    """
+    latitude: Float!
+    """
+    Longitude.
+    """
+    longitude: Float!
+}
+
+"""
+Image content
+"""
+type FdrImage {
+    """
+    Image URL.
+    """
+    url: String!
+}
+
+"""
+Pagination
+"""
+type FdrPagination {
+    page: Int!
+    perPage: Int!
+    total: Int!
+}
+
+"""
+Travel type
+"""
+enum FdrProductTravelType {
+    HOTEL_ONLY,
+    PACKAGE,
+}
+
+"""
+A text block with title.
+"""
+type FdrTitleText {
+    """
+    Text block title.
+    """
+    title: String!
+    """
+    Description text.
+    """
+    text: String!
+}
+
+"""
+Geo object interface.
+"""
+interface FdrGeo {
+    """
+    Geo object public id.
+    """
+    publicId: ID!
+    """
+    Geo object name.
+    """
+    name: String!
+    """
+    Geo object hero image.
+    """
+    hero: FdrImage
+    """
+    Geo object coordinates.
+    """
+    coordinates: FdrCoordinates!
+    """
+    Geo object google maps zoom value.
+    """
+    mapZoom: Int!
+    """
+    Flag indicating whether the geo object should be shown on maps.
+    """
+    showMap: Boolean!
+    """
+    Geo object long text.
+    """
+    longText: String
+    """
+    Geo object lead text.
+    """
+    leadText: String
+    """
+    Geo object top destination flag
+    """
+    top: Boolean
+    """
+    Geo object facts.
+    """
+    facts: String
+}
+
+"""
+Geo products response type.
+"""
+type FdrGeoProducts {
+    """
+    Page of geo products.
+    """
+    productsPage: [FdrProduct!]
+    """
+    Pagination info.
+    """
+    pagination: FdrPagination!
+}
+
+"""
+Resort geo object. Lowermost level of geo objects.
+"""
+type FdrResort implements FdrGeo {
+    """
+    Resort public id. Starts from 'f-' prefix.
+    """
+    publicId: ID!
+    """
+    Resort name.
+    """
+    name: String!
+    """
+    Resort's parent destination geo object.
+    """
+    destination: FdrDestination!
+    """
+    Resort hero image.
+    """
+    hero: FdrImage
+    """
+    Resort coordinates.
+    """
+    coordinates: FdrCoordinates!
+    """
+    Resort google maps zoom value.
+    """
+    mapZoom: Int!
+    """
+    Flag indicating whether the resort should be shown on maps.
+    """
+    showMap: Boolean!
+    """
+    Resort long text.
+    """
+    longText: String
+    """
+    Resort lead text.
+    """
+    leadText: String
+    """
+    Resort flight time.
+    """
+    flightTime: Float
+    """
+    Resort top destination flag
+    """
+    top: Boolean
+    """
+    Returns products which geo parent is the resort.
+    """
+    products(input: FdrGeoProductsInput!): FdrGeoProducts!
+    """
+    Array of resort images.
+    """
+    images: [FdrImage!]
+    """
+    Resort most popular season.
+    """
+    mostPopularSeason: String
+    """
+    Resort feature rating groups.
+    """
+    featureRatingGroups: [FdrGeoFeatureRatingGroup!]
+    ratings: FdrResortRatings!
+    """
+    Resort facts.
+    """
+    facts: String
+}
+
+
+"""
+Resort ratings.
+"""
+type FdrResortRatings {
+    """
+    Summer sport ratings.
+    """
+    summerSportRatings: FdrResortSummerSportRatings
+    """
+    Winter sport ratings.
+    """
+    waterSportRatings: FdrResortWaterSportRatings
+    """
+    Winter ratings.
+    """
+    winterRatings: FdrResortWinterRatings
+    """
+    Flair ratings.
+    """
+    flairRatings: FdrResortFlairRatings
+    """
+    Nature ratings.
+    """
+    natureRatings: FdrResortNatureRatings
+    """
+    Culture ratings.
+    """
+    cultureRatings: FdrResortCultureRatings
+    """
+    Entertainment ratings.
+    """
+    entertainmentRatings: FdrResortEntertainmentRatings
+}
+
+"""
+Resort summer sport ratings.
+"""
+type FdrResortSummerSportRatings implements FdrGeoRatings {
+    """
+    Achievement flag.
+    """
+    achieved: Boolean!
+    """
+    Total rating value.
+    """
+    total: Float!
+    """
+    Golf rating.
+    """
+    golf: Float!
+    """
+    Hiking rating.
+    """
+    hiking: Float!
+    """
+    Mountain biking rating.
+    """
+    cyclingMountainBiking: Float!
+    """
+    Horseback riding rating.
+    """
+    horsebackRiding: Float!
+}
+
+"""
+Resort water sport ratings.
+"""
+type FdrResortWaterSportRatings implements FdrGeoRatings {
+    """
+    Achievement flag.
+    """
+    achieved: Boolean!
+    """
+    Total rating value.
+    """
+    total: Float!
+    """
+    Snorkeling rating.
+    """
+    snorkeling: Float!
+    """
+    Diving rating.
+    """
+    diving: Float!
+    """
+    Sailing rating.
+    """
+    sailing: Float!
+    """
+    Surfing rating.
+    """
+    surfing: Float!
+    """
+    Wind surfing rating.
+    """
+    windSurfing: Float!
+    """
+    Kite surfing rating.
+    """
+    kiteSurfing: Float!
+    """
+    Water skiing rating.
+    """
+    waterSkiingWakeBoarding: Float!
+    """
+    Fishing rating.
+    """
+    fishing: Float!
+    """
+    Water sport center rating.
+    """
+    waterSportCenter: Float!
+}
+
+"""
+Resort winter sport ratings.
+"""
+type FdrResortWinterRatings implements FdrGeoRatings {
+    """
+    Achievement flag.
+    """
+    achieved: Boolean!
+    """
+    Total rating value.
+    """
+    total: Float!
+    """
+    Ski / snowboard.
+    """
+    skiSnowboard: Float!
+    """
+    Free riding.
+    """
+    freeRiding: Float!
+    """
+    Fun park.
+    """
+    funPark: Float!
+    """
+    Cross country skiins.
+    """
+    crossCountrySkiing: Float!
+    """
+    Sledging.
+    """
+    sledging: Float!
+    """
+    Ice skating.
+    """
+    iceSkating: Float!
+    """
+    Snow hiking.
+    """
+    snowHiking: Float!
+    """
+    Rentals / lessons.
+    """
+    rentalsLesson: Float!
+}
+
+"""
+Resort flair ratings.
+"""
+type FdrResortFlairRatings implements FdrGeoRatings {
+    """
+    Resort has "flair" achieved.
+    """
+    achieved: Boolean!
+    """
+    Total "flair" rating.
+    """
+    total: Float!
+    """
+    City life.
+    """
+    cityLife: Float!
+    """
+    Active.
+    """
+    active: Float!
+    """
+    Touristic developed.
+    """
+    touristicDeveloped: Float!
+    """
+    Authentic.
+    """
+    authentic: Float!
+    """
+    Rural.
+    """
+    rural: Float!
+    """
+    Quiet.
+    """
+    quiet: Float!
+    """
+    Remove.
+    """
+    remote: Float!
+    """
+    Adventurous.
+    """
+    adventurous: Float!
+}
+
+"""
+Resort nature ratings.
+"""
+type FdrResortNatureRatings implements FdrGeoRatings {
+    """
+    Resort has "nature" achieved.
+    """
+    achieved: Boolean!
+    """
+    Total "nature" ratings.
+    """
+    total: Float!
+    """
+    Mountain.
+    """
+    mountain: Float!
+    """
+    Unique scenery.
+    """
+    uniqueScenery: Float!
+    """
+    Special wildlife.
+    """
+    specialWildlife: Float!
+    """
+    Interesting flora.
+    """
+    interestingFlora: Float!
+}
+
+"""
+Resort entertainment ratings.
+"""
+type FdrResortEntertainmentRatings implements FdrGeoRatings {
+    """
+    Resort has "entertainment" achieved.
+    """
+    achieved: Boolean!
+    """
+    Total "entertainment" rating.
+    """
+    total: Float!
+    """
+    Restaurants.
+    """
+    restaurants: Float!
+    """
+    Bars / pubs.
+    """
+    barsPubs: Float!
+    """
+    Club / disco.
+    """
+    clubsDiscos: Float!
+    """
+    Concerts / festivals.
+    """
+    concertsFestivals: Float!
+    """
+    Shopping.
+    """
+    shopping: Float!
+    """
+    Sport events.
+    """
+    sportEvents: Float!
+    """
+    Theme park.
+    """
+    themePark: Float!
+}
+
+"""
+Resort culture ratings.
+"""
+type FdrResortCultureRatings implements FdrGeoRatings {
+    """
+    Resort has "culture" achieved.
+    """
+    achieved: Boolean!
+    """
+    Total "cluture" rating.
+    """
+    total: Float!
+    """
+    Theater / opera / ballet / musical.
+    """
+    theaterOperaBalletMusical: Float!
+    """
+    Art gallery / museums.
+    """
+    artGalleryMuseums: Float!
+    """
+    History / archeology.
+    """
+    historyArcheology: Float!
+    """
+    Local peculiarities.
+    """
+    localPeculiarities: Float!
+    """
+    Unique sights / places to see.
+    """
+    uniqueSightsPlacesToSee: Float!
+}
+
+"""
+Geo climate information.
+"""
+type FdrGeoClimateInfo {
+    """
+    Amount of sun hours per year.
+    """
+    sunHoursPerYear: Int!
+    """
+    Max temperature per month chart.
+    """
+    maxTemperatureChart: FdrGeoClimateChart
+    """
+    Rain days per month chart.
+    """
+    rainDaysChart: FdrGeoClimateChart
+    """
+    Sun hours per month chart.
+    """
+    sunHoursChart: FdrGeoClimateChart
+    """
+    Water temperature per month chart.
+    """
+    waterTemperatureChart: FdrGeoClimateChart
+}
+
+"""
+Geo climate chart.
+"""
+type FdrGeoClimateChart {
+    """
+    Array of climate chart entries.
+    """
+    entries: [FdrGeoClimateChartEntry!]!
+}
+
+"""
+Geo climate chart entry.
+"""
+type FdrGeoClimateChartEntry {
+    """
+    Chart entry month.
+    """
+    month: String!
+    """
+    Chart entry value.
+    """
+    value: Float!
+}
+
+"""
+Geo object feature rating group.
+"""
+type FdrGeoFeatureRatingGroup {
+    """
+    Rating group id.
+    """
+    id: String!
+    """
+    Rating group name.
+    """
+    name: String!
+    """
+    Average rating of group's features.
+    """
+    avgRating: Int!
+    """
+    Array of feature ratings.
+    """
+    featureRatings: [FdrGeoFeatureRating!]!
+}
+
+type FdrGeoFeatureRating {
+    id: String!
+    name: String!
+    rating: Int!
+}
+
+"""
+Destination geo object. Parent for resort geo objects.
+"""
+type FdrDestination implements FdrGeo {
+    """
+    Destination public id. Starts from 'd-' prefix.
+    """
+    publicId: ID!
+    """
+    Destination name.
+    """
+    name: String!
+    """
+    Destination parent country object.
+    """
+    country: FdrCountry!
+    """
+    Children resort geo objects.
+    """
+    resorts(input: FdrGeoChildrenInput!): FdrDestinationResorts!
+    """
+    Optional region parent geo object.
+    """
+    region: FdrRegion
+    """
+    Destination hero image.
+    """
+    hero: FdrImage
+    """
+    Destination coordinates.
+    """
+    coordinates: FdrCoordinates!
+    """
+    Destination google maps zoom value.
+    """
+    mapZoom: Int!
+    """
+    Flag indicating whether the destination should be shown on maps.
+    """
+    showMap: Boolean!
+    """
+    Destination long text.
+    """
+    longText: String
+    """
+    Destination lead text.
+    """
+    leadText: String
+    """
+    Destination flight time.
+    """
+    flightTime: Float
+    """
+    Destination top destination flag
+    """
+    top: Boolean
+    """
+    Default min travel period duration.
+    """
+    defaultMinTravelPeriodDuration: Int
+    """
+    Default max travel period duration.
+    """
+    defaultMaxTravelPeriodDuration: Int
+    """
+    Default travel type.
+    """
+    defaultTravelType: FdrProductTravelType
+    """
+    TODO: document properly. Do we need it?
+    Destination top flag info.
+    """
+    topDestination: FdrPrioritizedFlag
+    """
+    TODO: document properly. Do we need it?
+    """
+    lastMinute: FdrPrioritizedFlag
+    """
+    Destination nature ratings.
+    """
+    natureRatings: FdrDestinationNatureRatings
+    """
+    Returns products which geo parent is the destination. DO NOT returns products liked to
+    children resorts. Those can be fetched via 'FdrDestination.resorts -> FdrResort.products' resolver.
+    """
+    products(input: FdrGeoProductsInput!): FdrGeoProducts!
+    """
+    Destination climate information.
+    """
+    climateInfo: FdrGeoClimateInfo
+    """
+    Destination facts.
+    """
+    facts: String
+    """
+    Array of destination images.
+    """
+    images: [FdrImage!]
+    """
+    Destination most popular season.
+    """
+    mostPopularSeason: String
+}
+
+"""
+Geo ratings group. Individual values are in range 0 - 100.
+"""
+interface FdrGeoRatings {
+    """
+    Is total rating for this group over threshold.
+    """
+    achieved: Boolean!
+    """
+    Total rating for this group.
+    """
+    total: Float!
+}
+
+"""
+Destination nature ratings/
+"""
+type FdrDestinationNatureRatings implements FdrGeoRatings {
+    """
+    Is "nature" rating over threshold
+    """
+    achieved: Boolean!
+    """
+    Total rating for "nature"
+    """
+    total: Float!
+    """
+    Mountain rating.
+    """
+    mountain: Float!
+    """
+    Unique scenery rating.
+    """
+    uniqueScenery: Float!
+    """
+    Special wildfly rating.
+    """
+    specialWildlife: Float!
+    """
+    Interesting flora rating
+    """
+    interestingFlora: Float!
+}
+
+"""
+Geo prioritized flag.
+"""
+type FdrPrioritizedFlag {
+    """
+    Valid flag.
+    """
+    valid: Boolean!
+    """
+    Prioritized flag priority.
+    """
+    priority: Int!
+}
+
+"""
+Destination resorts response type.
+"""
+type FdrDestinationResorts {
+    """
+    Page of resorts.
+    """
+    resortsPage: [FdrResort!]
+    """
+    Pagination info.
+    """
+    pagination: FdrPagination!
+}
+
+# TODO: incomplete
+"""
+Region geo object. Parent for destinations.
+"""
+type FdrRegion implements FdrGeo {
+    """
+    Public id. Starts from 'r-' prefix.
+    """
+    publicId: ID!
+    """
+    Region name.
+    """
+    name: String!
+    """
+    Region parent country object.
+    """
+    country: FdrCountry!
+    """
+    Region hero image.
+    """
+    hero: FdrImage
+    """
+    Array of region images.
+    """
+    images: [FdrImage!]
+    """
+    Region coordinates.
+    """
+    coordinates: FdrCoordinates!
+    """
+    Region google maps zoom value.
+    """
+    mapZoom: Int!
+    """
+    Flag indicating whether the region should be shown on maps.
+    """
+    showMap: Boolean!
+    """
+    Region long text.
+    """
+    longText: String
+    """
+    Region lead text.
+    """
+    leadText: String
+    """
+    Region flight time.
+    """
+    flightTime: Float
+    """
+    Region top destination flag
+    """
+    top: Boolean
+    """
+    Region facts.
+    """
+    facts: String
+    """
+    Region destinations.
+    """
+    destinations(input: FdrGeoChildrenInput!): FdrRegionDestinations!
+}
+
+"""
+Region destinations response type.
+"""
+type FdrRegionDestinations {
+    """
+    Page of destinations.
+    """
+    destinationsPage: [FdrDestination!]
+    """
+    Pagination info.
+    """
+    pagination: FdrPagination!
+}
+
+"""
+Country geo object. Parent for regions and destinations.
+"""
+type FdrCountry implements FdrGeo {
+    """
+    Country id. Starts from 'c-' prefix.
+    """
+    publicId: ID!
+    """
+    Country name.
+    """
+    name: String!
+    """
+    Parent country group geo object.
+    """
+    countryGroup: FdrCountryGroup
+    """
+    Parent continent geo object.
+    """
+    continent: FdrContinent!
+    """
+    Country hero image.
+    """
+    hero: FdrImage
+    """
+    Array of country images.
+    """
+    images: [FdrImage!]
+    """
+    Country coordinates.
+    """
+    coordinates: FdrCoordinates!
+    """
+    Country google maps zoom value.
+    """
+    mapZoom: Int!
+    """
+    Flag indicating whether the country should be shown on maps.
+    """
+    showMap: Boolean!
+    """
+    Country long text.
+    """
+    longText: String
+    """
+    Country lead text.
+    """
+    leadText: String
+    """
+    Country top destination flag
+    """
+    top: Boolean
+    """
+    Country flight time.
+    """
+    flightTime: Float
+    """
+    Country tip from specialist text.
+    """
+    tipFromSpecialist: FdrTitleText
+    """
+    Country facts.
+    """
+    facts: String
+    """
+    Country regions.
+    """
+    regions(input: FdrGeoChildrenInput!): FdrCountryRegions!
+    """
+    Country destinations
+    """
+    destinations(input: FdrGeoChildrenInput!): FdrCountryDestinations!
+}
+
+"""
+Country regions response type.
+"""
+type FdrCountryRegions {
+    """
+    Page of regions.
+    """
+    regionsPage: [FdrRegion!]
+    """
+    Pagination info.
+    """
+    pagination: FdrPagination!
+}
+
+"""
+Country destinations response type.
+"""
+type FdrCountryDestinations {
+    """
+    Page of destinations.
+    """
+    destinationsPage: [FdrDestination!]
+    """
+    Pagination info.
+    """
+    pagination: FdrPagination!
+}
+
+"""
+Country group geo object. Parent for countries.
+"""
+type FdrCountryGroup implements FdrGeo {
+    """
+    Country group public id. Starts from 'g-' prefix.
+    """
+    publicId: ID!
+    """
+    Country group name.
+    """
+    name: String!
+    """
+    Continent parent geo object.
+    """
+    continent: FdrContinent!
+    """
+    Country group hero image.
+    """
+    hero: FdrImage
+    """
+    Array of country group images.
+    """
+    images: [FdrImage!]
+    """
+    Country group coordinates.
+    """
+    coordinates: FdrCoordinates!
+    """
+    Country group google maps zoom value.
+    """
+    mapZoom: Int!
+    """
+    Flag indicating whether the country group hould be shown on maps.
+    """
+    showMap: Boolean!
+    """
+    Country group long text.
+    """
+    longText: String
+    """
+    Country group lead text.
+    """
+    leadText: String
+    """
+    Country group facts.
+    """
+    facts: String
+    """
+    Country group top destination flag
+    """
+    top: Boolean
+    """
+    Children country geo objects.
+    """
+    countries(input: FdrGeoChildrenInput!): FdrCountryGroupCountries!
+}
+
+"""
+Country group countries response type.
+"""
+type FdrCountryGroupCountries {
+    """
+    Page of countries.
+    """
+    countriesPage: [FdrCountry!]
+    """
+    Pagination info.
+    """
+    pagination: FdrPagination!
+}
+
+"""
+Continent geo object. Uppermost geo level. Parent for countries and country groups.
+"""
+type FdrContinent implements FdrGeo {
+    """
+    Continent public id. Starts from 'k-' prefix.
+    """
+    publicId: ID!
+    """
+    Continent name.
+    """
+    name: String!
+    """
+    Continent hero image.
+    """
+    hero: FdrImage
+    """
+    Array of country group images.
+    """
+    images: [FdrImage!]
+    """
+    Continent coordinates.
+    """
+    coordinates: FdrCoordinates!
+    """
+    Continent google maps zoom value.
+    """
+    mapZoom: Int!
+    """
+    Flag indicating whether the continent should be shown on maps.
+    """
+    showMap: Boolean!
+    """
+    Continent long text.
+    """
+    longText: String
+    """
+    Continent lead text.
+    """
+    leadText: String
+    """
+    Continent facts.
+    """
+    facts: String
+    """
+    Geo object top destination flag
+    """
+    top: Boolean
+    """
+    Children country groups objects.
+    """
+    countryGroups(input: FdrGeoChildrenInput!): FdrContinentCountryGroups!
+    """
+    Children countries objects.
+    """
+    countries(input: FdrGeoChildrenInput!): FdrContinentCountries!
+}
+
+"""
+Continent country groups response type.
+"""
+type FdrContinentCountryGroups {
+    """
+    Country groups page.
+    """
+    countryGroupsPage: [FdrCountryGroup!]
+    """
+    Pagination info.
+    """
+    pagination: FdrPagination!
+}
+
+"""
+Continent countries response type.
+"""
+type FdrContinentCountries {
+    """
+    Countries page.
+    """
+    countriesPage: [FdrCountry!]
+    """
+    Pagination info.
+    """
+    pagination: FdrPagination!
+}
+
+interface FdrProduct {
+    """
+    Product giata code.
+    """
+    giataCode: Int
+    """
+    Product type.
+    """
+    productType: FdrProductType!
+    """
+    Product public id.
+    """
+    publicId: ID!
+    """
+    Product name.
+    """
+    name: String!
+}
+
+"""
+Product type enum.
+"""
+enum FdrProductType {
+    """
+    Hotel product.
+    """
+    HOTEL,
+    """
+    Round-trip product.
+    """
+    ROUNDTRIP,
+    """
+    Cruise product.
+    """
+    CRUISE,
+    """
+    Adventure travel product.
+    """
+    ADVENTURE_TRAVEL,
+}
+
+"""
+Hotel product.
+"""
+type FdrHotel implements FdrProduct{
+    """
+    HOTEL product type.
+    """
+    productType: FdrProductType!
+    """
+    Hotel public id key. Starts from "h-" prefix.
+    """
+    publicId: ID!
+    """
+    Hotel name.
+    """
+    name: String!
+    """
+    Hotel giata code.
+    """
+    giataCode: Int
+    tripAdvisorCode: Int
+    coordinates: FdrCoordinates
+    mapZoom: Int
+    """
+    Hotel 'Hotelplan' rating value.
+    """
+    rating: Float!
+    """
+    Hotel's resort parent object.
+    """
+    resort: FdrResort!
+    """
+    Hotel's hero image.
+    """
+    hero: FdrImage
+    """
+    Array of text block describing the product.
+    """
+    textBlocks: [FdrTitleText!]
+    """
+    Mythos specific information. B2B access only.
+    """
+    mythosInfo: FdrProductMythosInfo
+    """
+    Hotel lead text.
+    """
+    leadText: String
+    textInfo: FdrHotelTextInfo
+    flags: FdrHotelFlags
+    """
+    Array of hotel images.
+    """
+    images: [FdrImage!]
+}
+
+"""
+Generic hotel attribute flags.
+"""
+type FdrHotelTypeFlags {
+    """
+    <50 rooms.
+    """
+    rooms50: Boolean!
+    """
+    51-100 rooms.
+    """
+    rooms100: Boolean!
+    """
+    101-200 rooms.
+    """
+    rooms200: Boolean!
+    """
+    201-500 rooms.
+    """
+    rooms500: Boolean!
+    """
+    501+ rooms.
+    """
+    rooms999: Boolean!
+    """
+    Modern design.
+    """
+    modernDesign: Boolean!
+    """
+    Luxury.
+    """
+    luxury: Boolean!
+    """
+    Charm.
+    """
+    charm: Boolean!
+    """
+    Fun park.
+    """
+    funPark: Boolean!
+    """
+    Family atmosphere.
+    """
+    familyAtmosphere: Boolean!
+    """
+    Club.
+    """
+    club: Boolean!
+    """
+    Wheelchair access.
+    """
+    wheelchairAccess: Boolean!
+    """
+    Sustainable.
+    """
+    sustainable: Boolean!
+    """
+    Pets welcome.
+    """
+    petsWelcome: Boolean!
+    """
+    Parking.
+    """
+    parking: Boolean!
+    """
+    Apartment.
+    """
+    apartment: Boolean!
+    """
+    Catering stations.
+    """
+    chargingStations: Boolean!
+}
+
+"""
+Customer segment flags.
+"""
+type FdrHotelCustomerSegmentsFlags {
+    """
+    Honeymooner.
+    """
+    honeymooner: Boolean!
+    """
+    Singles.
+    """
+    singles: Boolean!
+    """
+    Couples.
+    """
+    couples: Boolean!
+    """
+    LGBTQ+ friendly.
+    """
+    gayLesbians: Boolean!
+    """
+    Adults only.
+    """
+    adultsOnly: Boolean!
+}
+
+"""
+Family related hotel flags.
+"""
+type FdrHotelFamilyFlags {
+    """
+    Suitable for families.
+    """
+    achieved: Boolean!
+    """
+    Babysitting service.
+    """
+    babysittingService: Boolean!
+    """
+    Child care.
+    """
+    childCare: Boolean!
+    """
+    Mini or children club.
+    """
+    miniOrChildrenClub: Boolean!
+    """
+    Teen program.
+    """
+    teenProgram: Boolean!
+    """
+    Child pool.
+    """
+    childPool: Boolean!
+    """
+    Children playground.
+    """
+    childrenPlayground: Boolean!
+    """
+    Water slide.
+    """
+    waterSlide: Boolean!
+}
+
+"""
+Flags related to hotel location.
+"""
+type FdrHotelLocationFlags {
+    """
+    Beach fron.
+    """
+    beachFront: Boolean!
+    """
+    Distance from beach < 500m.
+    """
+    distanceToBeach500M: Boolean!
+    """
+    Directly at slope valley station.
+    """
+    directlyAtSlopeValleyStation: Boolean!
+    """
+    Distance to slope valley station < 300m.
+    """
+    distanceToSlopeValleyStation300M: Boolean!
+    """
+    City center.
+    """
+    cityCenter: Boolean!
+    """
+    Rural area.
+    """
+    ruralArea: Boolean!
+    """
+    Remote area.
+    """
+    remoteArea: Boolean!
+    """
+    Directly at sea.
+    """
+    directlyAtSea: Boolean!
+    """
+    National part.
+    """
+    nationalPark: Boolean!
+    """
+    Airport hotel.
+    """
+    airportHotel: Boolean!
+    """
+    Directly at lake.
+    """
+    directlyAtLake: Boolean!
+}
+
+"""
+Flags related to sport.
+"""
+type FdrHotelSportFlags {
+    """
+    Offers good sport facilities.
+    """
+    achieved: Boolean!
+    """
+    Gym.
+    """
+    gym: Boolean!
+    """
+    Soccer.
+    """
+    soccer: Boolean!
+    """
+    Beach sport.
+    """
+    beachSport: Boolean!
+    """
+    Tennis.
+    """
+    tennis: Boolean!
+    """
+    Golf driving range.
+    """
+    golfDrivingRange: Boolean!
+    """
+    Cycling.
+    """
+    cycling: Boolean!
+    """
+    Sport program.
+    """
+    sportProgram: Boolean!
+    """
+    Squash.
+    """
+    squash: Boolean!
+    """
+    Ski package available.
+    """
+    skiPackageAvailable: Boolean!
+}
+
+"""
+Flags related to water sport.
+"""
+type FdrHotelWaterSportsFlags {
+    """
+    Offer goods water sport facilities.
+    """
+    achieved: Boolean!
+    """
+    Dive center.
+    """
+    diveCenter: Boolean!
+    """
+    Canoe / kayak.
+    """
+    canoeKayak: Boolean!
+    """
+    Sailing / catamaran.
+    """
+    sailingCatamaran: Boolean!
+    """
+    Water ski / wakeboarding.
+    """
+    waterSkiWakeboarding: Boolean!
+    """
+    Surfing.
+    """
+    surfing: Boolean!
+    """
+    Wind surfing.
+    """
+    windSurfing: Boolean!
+    """
+    Kite surfing.
+    """
+    kiteSurfing: Boolean!
+    """
+    Outdoor pool.
+    """
+    outdoorPool: Boolean!
+    """
+    Indoor pool.
+    """
+    indoorPool: Boolean!
+}
+
+"""
+Flags related to beauty and wellness.
+"""
+type FdrHotelBeautyAndWellnessFlags {
+    """
+    Offers good beauty and wellness facilities.
+    """
+    achieved: Boolean!
+    """
+    Sauna.
+    """
+    sauna: Boolean!
+    """
+    Steam bath / hamam.
+    """
+    steamBathHamam: Boolean!
+    """
+    Spa / health center.
+    """
+    spaHealthCenter: Boolean!
+    """
+    Massage.
+    """
+    massage: Boolean!
+    """
+    Ayurveda.
+    """
+    ayurveda: Boolean!
+    """
+    Beauty treatment.
+    """
+    beautyTreatment: Boolean!
+    """
+    Yoga.
+    """
+    yoga: Boolean!
+}
+
+"""
+Flags related to entertainment.
+"""
+type FdrHotelEntertainmentFlags {
+    """
+    Hotel good for entertainment.
+    """
+    achieved: Boolean!
+    """
+    Disco / night club.
+    """
+    discoNightclub: Boolean!
+    """
+    Animation.
+    """
+    animation: Boolean!
+    """
+    Show.
+    """
+    show: Boolean!
+}
+
+"""
+Flags related to food / beverage.
+"""
+type FdrHotelFoodAndBeverageFlags {
+    """
+    Buffet.
+    """
+    buffet: Boolean!
+    """
+    A-la carte restaurants.
+    """
+    alaCarteRestaurants: Boolean!
+    """
+    Gourmet restaurant.
+    """
+    gourmetRestaurant: Boolean!
+    """
+    Beach bar.
+    """
+    beachBar: Boolean!
+    """
+    Bar.
+    """
+    bar: Boolean!
+    """
+    Snack bar / bistro.
+    """
+    snackBarBistro: Boolean!
+    """
+    Room service.
+    """
+    roomService: Boolean!
+}
+
+"""
+Flags related to beach.
+"""
+type FdrHotelBeachFlags {
+    """
+    Hotel is a beach hotel.
+    """
+    achieved: Boolean!
+    """
+    White fien sandy beach.
+    """
+    sandyBeachWhiteFine: Boolean!
+    """
+    Sandy beach.
+    """
+    sandyBeach: Boolean!
+    """
+    Cobble stone beach.
+    """
+    cobbleStone: Boolean!
+    """
+    Rocks / stones on the bach.
+    """
+    rocksStones: Boolean!
+    """
+    Natural beach.
+    """
+    naturalBeach: Boolean!
+    """
+    Gently sloping beach.
+    """
+    gentlySloping: Boolean!
+    """
+    Private beach.
+    """
+    privateBeach: Boolean!
+    """
+    Reef beach.
+    """
+    reefBeach: Boolean!
+}
+
+"""
+Flags related to WiFi on hotel grounds.
+"""
+type FdrHotelWifiFlags {
+    """
+    Hotel has WiFi.
+    """
+    achieved: Boolean!
+    """
+    In room paid wifi.
+    """
+    inRoomPaidWifi: Boolean!
+    """
+    In room free wifi.
+    """
+    inRoomFreeWifi: Boolean!
+    """
+    In lobby paid wifi.
+    """
+    inLobbyPaidWifi: Boolean!
+    """
+    In lobby free wifi.
+    """
+    inLobbyFreeWifi: Boolean!
+}
+
+"""
+Generic hotel flags.
+"""
+type FdrHotelFlags {
+    """
+    "Top" hotel.
+    """
+    top: Boolean!
+    """
+    "Bestseller" hotel.
+    """
+    bestseller: Boolean!
+    """
+    City trips.
+    """
+    cityTrip: Boolean!
+    """
+    Winter sport.
+    """
+    winterSport: Boolean!
+    """
+    Summer sport.
+    """
+    summerSport: Boolean!
+    """
+    Night life.
+    """
+    nightLife: Boolean!
+    """
+    Gourmet.
+    """
+    gourmet: Boolean!
+    """
+    Club.
+    """
+    club: Boolean!
+    """
+    Luxury.
+    """
+    luxury: Boolean!
+    """
+    Pets.
+    """
+    pets: Boolean!
+    """
+    Sustainable.
+    """
+    sustainable: Boolean!
+    """
+    Romantic.
+    """
+    romantic: Boolean!
+    """
+    LGBTQ+ friendly.
+    """
+    gayLesbians: Boolean!
+    """
+    Ski.
+    """
+    ski: Boolean
+    """
+    Fun park.
+    """
+    funPark: Boolean!
+    """
+    National park.
+    """
+    nationalPark: Boolean!
+    """
+    Adults only.
+    """
+    adultsOnly: Boolean!
+    """
+    Refundable.
+    """
+    refundable: Boolean!
+    """
+    Extra ordinary.
+    """
+    extraOrdinary: Boolean!
+    """
+    Wifi flags.
+    """
+    wifi: FdrHotelWifiFlags
+    """
+    Beach flags.
+    """
+    beach: FdrHotelBeachFlags
+    """
+    Food and beverage flags.
+    """
+    foodAndBeverage: FdrHotelFoodAndBeverageFlags
+    """
+    Entertainment flags.
+    """
+    entertainment: FdrHotelEntertainmentFlags
+    """
+    Beauty and wellness flags.
+    """
+    beautyAndWellness: FdrHotelBeautyAndWellnessFlags
+    """
+    Water sport flags.
+    """
+    waterSport: FdrHotelWaterSportsFlags
+    """
+    Sport flags.
+    """
+    sport: FdrHotelSportFlags
+    """
+    Location flags.
+    """
+    location: FdrHotelLocationFlags
+    """
+    Family flags.
+    """
+    family: FdrHotelFamilyFlags
+    """
+    Customer segment flags.
+    """
+    customerSegment: FdrHotelCustomerSegmentsFlags
+    """
+    Generic hotel attribute flags.
+    """
+    typeFlags: FdrHotelTypeFlags
+}
+
+"""
+Hotel text information
+"""
+type FdrHotelTextInfo {
+    """
+    Location / sitation.
+    """
+    situation: String
+    """
+    Facility features
+    """
+    facilityFeatures: String
+    """
+    Accommodation features
+    """
+    accommodationFeatures: String
+    """
+    Rooms
+    """
+    rooms: String
+    """
+    Free sports.
+    """
+    sportFree: String
+    """
+    Paid sports.
+    """
+    sportPaid: String
+    """
+    Activities.
+    """
+    activities: String
+    """
+    For children.
+    """
+    forKids: String
+    """
+    Catering.
+    """
+    catering: String
+    """
+    Hints.
+    """
+    hints: String
+    """
+    Additional information.
+    """
+    infoPlus: String
+    """
+    Hints for families.
+    """
+    familyHits: String
+    """
+    Ski packages.
+    """
+    skiPackages: String
+    """
+    Wellness plus.
+    """
+    wellnessPlus: String
+    """
+    Wellness information.
+    """
+    hotelWellnessInfo: String
+    """
+    Wellness package.
+    """
+    hotelWellnessPaket: String
+    """
+    Additional information.
+    """
+    moreInformation: String
+    """
+    Official rating.
+    """
+    officialRating: String
+    """
+    Highlights.
+    """
+    highlights: String
+}
+
+"""
+Mythos information about product available for B2B users.
+"""
+type FdrProductMythosInfo {
+    """
+    Mythos code.
+    """
+    code: String
+    """
+    Mythos type.
+    """
+    type: String
+    """
+    Mythos food type.
+    """
+    foodType: String
+    """
+    Mythos iata code.
+    """
+    iataCode: String
+    """
+    Mythos booking name.
+    """
+    bookingName: String
+}
