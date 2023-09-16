@@ -1,13 +1,20 @@
-import axios from "axios";
-import { BASE_URL } from "const/env";
+import { CHAT_VERSION_1, CHAT_VERSION_2 } from "const/mock/chatbot";
+import { getRandomAmountHotel } from "./helpers";
 
-export async function getHotels() {
-    let hotel = await axios
-    .get(`${BASE_URL}/`)
-    .then((response) => {
-       return response.data;
-    })
-    console.log(hotel);
-    // .catch((e) => console.error(e));
-    return hotel.da;
+export const getHotels = (number) => {
+    return getRandomAmountHotel(number);
 };
+
+export const getChatBotConversation = (data) => {
+    const version = data.version;
+    const index = data.index;
+
+    switch(version) {
+        case 1:
+            return CHAT_VERSION_1[index];
+        case 2:
+            return CHAT_VERSION_2[index];
+        default:
+            return CHAT_VERSION_1[index];
+    }
+}
