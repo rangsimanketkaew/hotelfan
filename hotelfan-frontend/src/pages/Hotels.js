@@ -13,14 +13,20 @@ const Hotels = ({ carousel }) => {
     });
   }, []);
 
+  if (!hotels) return;
+
   if (carousel) {
     return (
       <>
-        <Carousel color="black">
-          {hotels.map((hotel) => (
-            <Hotel hotel={hotel} />
-          ))}
-        </Carousel>
+        {hotels.length === 1 ? (
+          <Hotel hotel={hotels[0]} />
+        ) : (
+          <Carousel color="black">
+            {hotels.map((hotel) => (
+              <Hotel hotel={hotel} />
+            ))}
+          </Carousel>
+        )}
       </>
     );
   }

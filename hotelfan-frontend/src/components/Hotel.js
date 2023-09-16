@@ -1,7 +1,5 @@
-import { memo, useEffect, useState } from "react";
-import { Button, Card, Carousel, ProgressBar, Spinner } from "react-bootstrap";
-import axios from "axios";
-import { BASE_URL } from "const/env";
+import { memo } from "react";
+import { Card, Carousel, ProgressBar } from "react-bootstrap";
 import { getPlainText } from "utils/helpers";
 import { AiFillStar } from "react-icons/ai";
 import { IoIosArrowForward } from "react-icons/io";
