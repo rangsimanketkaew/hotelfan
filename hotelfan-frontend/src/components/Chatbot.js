@@ -4,11 +4,14 @@ import { MdSms, MdSend } from "react-icons/md";
 import { RxCross2 } from "react-icons/rx";
 import { useRecoilState } from "recoil";
 import { chatbotOpen } from "states/app";
+import useSetTitle from "utils/hooks/useSetTitle";
 
 const Chatbot = () => {
   const [isChatbotOpen, setIsChatbotOpen] = useRecoilState(chatbotOpen);
   const [message, setMessage] = useState("");
   const messages = [{text: "hello", type:"human"}, {text: "hello", type:"human"}, {text: "hello", type:"chatbot"}];
+
+  useSetTitle("Chatbot");
 
   const ChatBotIcon = useMemo(() => {
     return isChatbotOpen ? RxCross2 : MdSms;
