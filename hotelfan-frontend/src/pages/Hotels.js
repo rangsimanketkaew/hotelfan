@@ -1,6 +1,4 @@
-import axios from "axios";
 import Hotel from "components/Hotel";
-import { BASE_URL } from "const/env";
 import { useEffect, useState } from "react";
 import { Carousel } from "react-bootstrap";
 import { getHotels } from "utils/server";
