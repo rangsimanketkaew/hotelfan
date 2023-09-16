@@ -1,15 +1,18 @@
 import clsx from "clsx";
+import Hotels from "pages/Hotels";
 import { memo, useCallback, useMemo, useState } from "react";
 import { MdSms, MdSend } from "react-icons/md";
 import { RxCross2 } from "react-icons/rx";
 import { useRecoilState } from "recoil";
 import { chatbotOpen } from "states/app";
 import useSetTitle from "utils/hooks/useSetTitle";
+import { getChatBotConversation } from "utils/server";
 
 const Chatbot = () => {
   const [isChatbotOpen, setIsChatbotOpen] = useRecoilState(chatbotOpen);
   const [message, setMessage] = useState("");
-  const messages = [{text: "hello", type:"human"}, {text: "hello", type:"human"}, {text: "hello", type:"chatbot"}];
+  const [messages, setMessages] = useState([]);
+  const [index, setIndex] = useState(0);
 
   useSetTitle("Chatbot");
 
@@ -22,8 +25,19 @@ const Chatbot = () => {
   }, [isChatbotOpen, setIsChatbotOpen]);
 
   const submitRequest = useCallback(() => {
-    console.log(message);
-  }, [message]);
+    const provMessage = getChatBotConversation({ version: 1, index: index });
+    setIndex(index + 1);
+    if (message !== "") {
+      setMessages([
+        ...messages,
+        { text: message, type: "human" },
+        { ...provMessage, type: "chatbot" },
+      ]);
+      setMessage("");
+    } else {
+      setMessages([...messages, { ...provMessage, type: "chatbot" }]);
+    }
+  }, [message, index]);
 
   return (
     <>
@@ -42,21 +56,26 @@ const Chatbot = () => {
             <div>
               {messages.map((message) => {
                 return (
-                  <div
-                    className={clsx(
-                      "message",
-                      message.type === "chatbot"
-                        ? "message-chatbot"
-                        : "message-human"
+                  <>
+                    <div
+                      className={clsx(
+                        "message",
+                        message.type === "chatbot"
+                          ? "message-chatbot"
+                          : "message-human"
+                      )}
+                      dangerouslySetInnerHTML={{ __html: message.text }}
+                    />
+                    {message.hotels && (
+                      <Hotels carousel={true} baseHotels={message.hotels} />
                     )}
-                  >
-                    {message.text}
-                  </div>
+                  </>
                 );
               })}
             </div>
             <div className="chatbot-form">
               <input
+                value={message}
                 name="request"
                 placeholder="Ihr Anliegen"
                 onChange={(e) => setMessage(e.target.value)}
