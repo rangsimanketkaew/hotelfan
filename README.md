@@ -8,6 +8,12 @@ In addition to the data supplied, external data sources such as Carbon Interface
 ## Goal
 Our goal is that, with the help of a chatbot, we can help the user choose the most suitable and climate-friendly trip.
 
+## Analyzing of user input
+As planned we wanted to implement the analyzation of the user input with ChatGPT-4.
+While developing we was confrontent with some challanges.
+So we already prepared the information but didn't connect it to the frontend.
+In a later time we would investigate and fix it so we can have an even better user experience.
+
 ## Prerequisites
 - Python
 - NPM
